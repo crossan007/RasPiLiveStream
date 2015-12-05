@@ -1,5 +1,11 @@
 #!/usr/bin/liquidsoap
 
+
+#Resource: http://savonet.sourceforge.net/doc-svn/scripts/users_radiopi.liq
+#resource: http://savonet.sourceforge.net/doc-svn/documentation.html
+#Resource: http://www.dlineradio.co.uk/articles/stls-and-raspberry-pis/
+
+
 set("init.daemon",true)
 set("init.daemon.pidfile.path","/tmp/soap.pid")
 
@@ -16,7 +22,7 @@ source = input.alsa(bufferize=true,device="plughw:1,0")
 output.alsa(bufferize=true,fallible=true,device="hw:0",source)
 
 output.icecast(%vorbis, host='172.30.9.163',
-               port=8000, password='hackme',
+               port=8080, password='hackme',
                mount="/stream/live.ogg", fallible=true,
                source)
 
