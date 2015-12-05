@@ -21,8 +21,10 @@ source = input.alsa(bufferize=true,device="plughw:1,0")
 #source = noise(duration=100.00)
 output.alsa(bufferize=true,fallible=true,device="hw:0",source)
 
-output.icecast(%vorbis, host='172.30.9.163',
+output.icecast(%mp3.abr(bitrate=32,max_bitrate=64), host='172.30.9.163',
                port=8080, password='hackme',
-               mount="/stream/live.ogg", fallible=true,
+               mount="/stream/live.mp3", fallible=true,
                source)
 
+			   
+	
